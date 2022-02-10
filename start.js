@@ -70,7 +70,7 @@ const main = async () => {
   const versionTagPattern = process.env.INPUT_VERSION_TAG_PATTERN;
   const releaseNamePattern = process.env.INPUT_RELEASE_NAME_PATTERN;
 
-  const {version} = require(path(cwd, 'package.json'));
+  const {version} = require(path.resolve(cwd, 'package.json'));
   const versionTag = renderVersionTag(versionTagPattern, version);
   const releaseName = renderVersionTag(releaseNamePattern, version);
 
