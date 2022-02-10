@@ -83,7 +83,7 @@ const main = async () => {
 
   {
     // https://docs.github.com/en/rest/reference/releases#create-a-release
-    const apiPath = `/repos/${process.env.GITHUB_ACTOR}/${repository}/releases`;
+    const apiPath = `/repos/${repository}/releases`;
 
     const options = {
       method: 'POST',
