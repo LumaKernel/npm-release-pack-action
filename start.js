@@ -94,11 +94,11 @@ const main = async () => {
     const req = {
       tag_name: versionTag,
       name: releaseName,
-      body: process.env.INPUT_RELEASE_BODY,
+      body: process.env.INPUT_RELEASE_BODY || undefined,
       draft: boolWithDefault(process.env.INPUT_DRAFT, undefined),
       prerelease: boolWithDefault(process.env.INPUT_PRERELEASE, undefined),
       generate_release_notes: boolWithDefault(process.env.INPUT_GENERATE_RELEASE_NOTES, undefined),
-      discussion_category_name: process.env.INPUT_DISCUSSION_CATEGORY_NAME,
+      discussion_category_name: process.env.INPUT_DISCUSSION_CATEGORY_NAME || undefined,
       target_commitish: process.env.GITHUB_SHA,
     };
     await request(`https://api.github.com${apiPath}`, req, options);
