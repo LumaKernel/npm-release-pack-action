@@ -1,0 +1,48 @@
+name: 'NPM Release Pack'
+description: 'Publishing to npm, push version tag and release'
+author: 'LumaKernel'
+branding:
+  icon: upload-cloud
+  color: gray-dark
+inputs:
+  github_token:
+    description: 'GitHub token or PAT token'
+    required: true
+    default: ${{ github.token }}
+  repository:
+    description: 'Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})'
+    default: ''
+    required: false
+  working_directory:
+    description: 'Directory to publish.'
+    required: false
+    default: '.'
+  publish_command:
+    description: 'Command to publish.'
+    required: true
+  version_tag_pattern:
+    description: 'Version tag pattern with %s. Multiple %s is allowed. Cannot use percent charcter.'
+    required: false
+    default: 'v%s'
+  release_name_pattern:
+    description: 'GitHub release name pattern with %s. Multiple %s is allowed. Cannot use percent charcter.'
+    required: false
+    default: 'v%s'
+  release_body:
+    description: 'GitHub release body.'
+    required: false
+  draft:
+    description: 'GitHub release draft.'
+    required: false
+  prerelease:
+    description: 'GitHub release prerelease.'
+    required: false
+  generate_release_notes:
+    description: 'GitHub release generate_release_notes.'
+    required: false
+  discussion_category_name:
+    description: 'GitHub release discussion_category_name.'
+    required: false
+runs:
+  using: 'node12'
+  main: 'start.js'
