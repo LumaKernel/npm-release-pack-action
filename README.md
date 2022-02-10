@@ -9,7 +9,11 @@ GitHub Action for:
 ## Usage
 
 ```yml
-- uses: LumaKernel/npm-release-pack-action@v1
+- if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
+  name: Configure npm token
+  run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+- if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main' }}
+  uses: LumaKernel/npm-release-pack-action@v1.0.1
   with:
     github_token: ${{ github.token }}
     # repository: ''  # optional
