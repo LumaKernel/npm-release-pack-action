@@ -38,6 +38,10 @@ name|description
 `repository`|GitHub repository name.
 `working_directory`|Directory to publish.
 
+## Examples
+
+- https://github.com/LumaKernel/changeset-single
+
 ## Credits
 
 - This repository is based on:
